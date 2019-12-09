@@ -1,8 +1,20 @@
-# Stuvv (front-end repo)
+# Stuvv
 
-[find the backend repo here](https://github.com/tlowande/stuvv-api)
+Stuvv allows you to rent your personal-seasonal belonings and make extra cash out of it by facilitating communication between users.
+[Find the server repo here](https://github.com/tlowande/stuvv-api)
 
-### The Final Product
+This project was bootstrapped using [Create React App](https://github.com/facebook/create-react-app) which auto-creates the webpack. As such, it also includes all the related dependencies:
+
+- react-dom
+- react-easy-swipe
+- react-scripts
+- react
+
+## Deployement
+
+This project has been deployed for educational purposes only and it is available at https://stuvv.netlify.com/. Back-end database was deployed on Heroku
+
+## The Final Product
 
 !["Stuvv home page"](https://github.com/TYLER-JM/stuvv-react-frontend/blob/jordan/demoDay/docs/homePage.gif?raw=true)
 !["Build page"](https://github.com/TYLER-JM/stuvv-react-frontend/blob/jordan/demoDay/docs/buildPageImage.png?raw=true)
@@ -12,8 +24,8 @@
 ### Set-Up
 
 - after cloning the repo be sure to run `npm install` to download the dependencies.
-- You'll also need to run the [backend server](https://github.com/TYLER-JM/stuvv-api) in order to use the app.
-- Once the server is running you can run `npm start` to start the frontend server and open the page in your browser
+- You'll also need to run the [backend server](https://github.com/tlowande/stuvv-api) in order to use the app.
+- Once the server is running you can run `npm start` to start the frontend server in development mode and open the page in your localhost browser
 
 ### Dependencies
 
@@ -27,10 +39,3 @@
 - React-Router-Dom
 - [classnames](https://github.com/JedWatson/classnames)
 - node-sass
-
-This project was bootstrapped using [Create React App](https://github.com/facebook/create-react-app). As such, it also includes all the related dependencies:
-
-- react-dom
-- react-easy-swipe
-- react-scripts
-- react
