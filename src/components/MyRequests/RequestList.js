@@ -52,6 +52,8 @@ const headCells = [
   { id: 'startDate', numeric: true, disablePadding: false, label: 'Start Date' },
   { id: 'endDate', numeric: true, disablePadding: false, label: 'End Date' },
   { id: 'cost', numeric: true, disablePadding: false, label: 'Total Cost' },
+  { id: 'pickup', numeric: true, disablePadding: false, label: 'Days until pick-up' },
+  { id: 'dropoff', numeric: true, disablePadding: false, label: 'Return in' },
 ];
 
 function EnhancedTableHead(props) {
@@ -162,8 +164,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function EnhancedTable(props) {
 
-  console.log("the users REQUESTS", props.requests)
-
   function deleteRequest(id, index) {
     axios.delete(`${process.env.REACT_APP_DB_HOST}/requests/${id}`, { withCredentials: true })
       .then(resp => {
@@ -227,6 +227,7 @@ export default function EnhancedTable(props) {
               {stableSort(rows, getSorting(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
+                  // console.log(typeof row.pickup[0])
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   const showStatus = () => {
@@ -249,8 +250,6 @@ export default function EnhancedTable(props) {
                       <TableCell padding="checkbox">
                         <Tooltip title="Delete">
                           <IconButton aria-label="delete">
-                            {/* <DeleteIcon requestid={row.requestId} onClick={() => console.log("you clicked the trash")}/> */}
-                            {/* <DeleteIcon onClick={() => setModalShow(true)} /> */}
                             <DeleteIcon value={row.requestId} onClick={() => deleteRequest(row.requestId, row.rowIndex)} />
                           </IconButton>
                         </Tooltip>
@@ -263,6 +262,11 @@ export default function EnhancedTable(props) {
                       <TableCell align="right">{row.startDate}</TableCell>
                       <TableCell align="right">{row.endDate}</TableCell>
                       <TableCell align="right">{row.cost}</TableCell>
+                      {/* <TableCell align="right">{row.pickup}</TableCell> */}
+                      {row.pickup[0] === "-" ? <TableCell align="right">0 Days</TableCell> : <TableCell align="right">{row.pickup}</TableCell>}
+                      {/* <TableCell align="right">{row.dropoff}</TableCell> */}
+                      {row.dropoff[0] === "-" ? <TableCell align="right">0 Days</TableCell> : <TableCell align="right">{row.dropoff}</TableCell>}
+                      {/* {new Date(row.startDate) < new Date() ? <TableCell align="right">{row.dropoff}</TableCell> : null} */}
                     </TableRow>
                   );
                 })}

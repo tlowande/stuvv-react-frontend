@@ -26,7 +26,6 @@ export default function Home(props) {
   const sendRequest = (search) => {
     return axios.post(`${process.env.REACT_APP_DB_HOST}/search`, { search }, { withCredentials: true })
       .then(resp => {
-        console.log("RESP in SEARCH: ", resp)
         setList(resp.data)
         window.scrollBy(0, window.innerHeight);
       })

@@ -71,7 +71,6 @@ export default function CardListItem(props) {
   const handleDeleteListing = () => {
     axios.delete(`${process.env.REACT_APP_DB_HOST}/listings/${props.listingid}`, { withCredentials: true })
       .then((resp) => {
-        console.log("After delete action: ", resp.data)
         if (window.location.pathname === "/my_stuvv") {
           axios.get(`${process.env.REACT_APP_DB_HOST}/userslistings/${props.user.id}`, { withCredentials: true })
             .then((resp) => {

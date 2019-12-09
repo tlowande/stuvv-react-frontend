@@ -14,7 +14,7 @@ export default function Messages(props) {
   const [cssStyle, setCssStyle] = useState("");
   const [loading, setLoading] = useState(true)
   const [register, setRegister] = useState(false)
-  console.log("Message state is", messages)
+
   //to show login if user tries to access this page without being logged in
   setTimeout(() => {
     setLoading(false)
@@ -31,7 +31,6 @@ export default function Messages(props) {
     if (message === "inbound") {
       return axios.get(`${process.env.REACT_APP_DB_HOST}/messages/inbound/${props.user.id}`, { withCredentials: true })
         .then(resp => {
-          console.log("GOT INBOUND MESSAGES: ", resp.data);
           setMessages(resp.data)
         })
         .catch(error => console.log(error))
@@ -40,7 +39,6 @@ export default function Messages(props) {
     if (message === "outbound") {
       return axios.get(`${process.env.REACT_APP_DB_HOST}/messages/outbound/${props.user.id}`, { withCredentials: true })
         .then(resp => {
-          console.log("GOT OUTBOUND MESSAGES: ", resp.data);
           setMessages(resp.data)
         })
         .catch(error => console.log(error))
@@ -49,8 +47,6 @@ export default function Messages(props) {
 
   //loops over all messages for this user and builds each conversation separately
   const conversations = messages.map((conversation, i) => {
-    // console.log("from inside conversations array Message state is", messages)
-    console.log("Conversation prop being passed", conversation)
     return (
       <MessageList
         key={i}
@@ -67,7 +63,6 @@ export default function Messages(props) {
 
   //mounts the side bar with user name and product name
   const names = messages.map((conversation, i) => {
-    console.log("from inside names array Message state is", messages)
     return (
       <MessagesSideBar
         key={i}
