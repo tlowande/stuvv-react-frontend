@@ -1,6 +1,6 @@
 # Stuvv
 
-Stuvv allows you to rent your personal-seasonal belonings and make extra cash out of it by facilitating communication between users.
+Stuvv allows you to rent your personal-seasonal belongings and make extra cash out of it by facilitating communication between users.
 [Find the server repo here](https://github.com/tlowande/stuvv-api)
 
 This project was bootstrapped using [Create React App](https://github.com/facebook/create-react-app) which auto-creates the webpack. As such, it also includes all the related dependencies:
@@ -13,6 +13,9 @@ This project was bootstrapped using [Create React App](https://github.com/facebo
 ## Deployement
 
 This project has been deployed for educational purposes only and it is available at https://stuvv.netlify.com/. Back-end database was deployed on Heroku
+
+Anyone can sign up by choosing any string that simulates First Name, Last Name and Email
+(something@something.something) and a minimum of 4 digit password. All fields must be complete.
 
 ## The Final Product
 
